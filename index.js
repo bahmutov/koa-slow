@@ -1,6 +1,15 @@
 var isRegExp = require('lodash.isregexp');
+var q = require('q');
 
 module.exports = slow;
+
+function sleep(delay) {
+  var defer = q.defer();
+  setTimeout(function () {
+    defer.resolve();
+  }, delay);
+  return defer.promise;
+}
 
 function slow(options) {
   options = options || {};
@@ -19,17 +28,15 @@ function slow(options) {
     if (options.url) {
       if (options.url.test(this.url)) {
         // slow specific resoures down
-        setTimeout(function () {
-          // yield next;
-        }, options.delay);
+        yield sleep(options.delay);
+        yield next;
       } else {
         yield next;
       }
     } else {
       // slow everything down
-      setTimeout(function () {
-        // yield next;
-      }, options.delay);
+      yield sleep(options.delay);
+      yield next;
     }
   };
 };

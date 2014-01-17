@@ -12,7 +12,6 @@ describe('does not slow unrelated requests', function(){
       url: /\.png$/
     }));
     app.use(function *(next){
-      yield next;
       this.body = msg;
     })
 
@@ -28,12 +27,41 @@ describe('slow() slows everything by default', function(){
 
     app.use(slow());
     app.use(function *(next){
-      yield next;
       this.body = msg;
     })
 
+    var started = new Date();
     request(app.listen())
     .get('/something')
-    .expect(200, done);
+    .expect(200, function () {
+      var finished = new Date();
+      var took = finished - started;
+      console.assert(took >= 1000, 'request should take more than 1000ms');
+      done();
+    });
+  })
+})
+
+describe('slow() slows some resources, but not the others', function(){
+  it('should slow down .png', function(done){
+    var app = koa();
+
+    app.use(slow({
+      url: /\.png$/,
+      delay: 500
+    }));
+    app.use(function *(next){
+      this.body = msg;
+    })
+
+    var started = new Date();
+    request(app.listen())
+    .get('/something.png')
+    .expect(200, function () {
+      var finished = new Date();
+      var took = finished - started;
+      console.assert(took >= 500, 'request should take more than 500ms');
+      done();
+    });
   })
 })
