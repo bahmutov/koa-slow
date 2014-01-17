@@ -17,10 +17,10 @@ function slow(options) {
 
   return function *(next) {
     if (options.url) {
-      if (options.url.test(req.url)) {
+      if (options.url.test(this.url)) {
         // slow specific resoures down
         setTimeout(function () {
-          yield next;
+          // yield next;
         }, options.delay);
       } else {
         yield next;
@@ -28,7 +28,7 @@ function slow(options) {
     } else {
       // slow everything down
       setTimeout(function () {
-        yield next;
+        // yield next;
       }, options.delay);
     }
   };

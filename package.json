@@ -4,7 +4,7 @@
   "description": "Delaying responses for resources by URL RegExp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node node_modules/mocha/bin/mocha --harmony-generators --require should --reporter spec --bail"
   },
   "keywords": [
     "koa",
@@ -19,9 +19,16 @@
   "devDependencies": {
     "koa": "~0.2.1",
     "request": "~2.33.0",
-    "gt": "~0.8.29"
+    "gt": "~0.8.29",
+    "mocha": "~1.17.0",
+    "should": "~2.1.1",
+    "supertest": "~0.8.3",
+    "co": "~3.0.2"
   },
-  "engines" : {
-    "node" : "0.11.*"
+  "engines": {
+    "node": "0.11.*"
+  },
+  "dependencies": {
+    "lodash.isregexp": "~2.4.1"
   }
 }
