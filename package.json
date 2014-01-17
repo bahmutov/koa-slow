@@ -1,0 +1,27 @@
+{
+  "name": "koa-slow",
+  "version": "0.0.0",
+  "description": "Delaying responses for resources by URL RegExp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "koa",
+    "middleware",
+    "slow",
+    "delay",
+    "debugging",
+    "testing"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "koa": "~0.2.1",
+    "request": "~2.33.0",
+    "gt": "~0.8.29"
+  },
+  "engines" : {
+    "node" : "0.11.*"
+  }
+}
