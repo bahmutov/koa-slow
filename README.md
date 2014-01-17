@@ -92,8 +92,8 @@ app.use(slow({
 
 #### Related projects
 
-* [connect-slow](https://github.com/bahmutov/connect-slow)
-- same functionality for Connect / Express servers.
+* [connect-slow](https://github.com/bahmutov/connect-slow),
+same functionality for Connect / Express servers.
 
 
 
