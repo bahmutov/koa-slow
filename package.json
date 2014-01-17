@@ -1,7 +1,7 @@
 {
   "name": "koa-slow",
   "version": "0.0.0",
-  "description": "Delaying responses for resources by URL RegExp",
+  "description": "Delaying responses for resources by URL RegExp, for Koa server",
   "main": "index.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha --harmony-generators --require should --reporter spec --bail"
@@ -27,7 +27,11 @@
     "mocha": "~1.17.0",
     "should": "~2.1.1",
     "supertest": "~0.8.3",
-    "co": "~3.0.2"
+    "co": "~3.0.2",
+    "grunt-bump": "0.0.13",
+    "grunt": "~0.4.2",
+    "grunt-readme": "~0.4.5",
+    "matchdep": "~0.3.0"
   },
   "engines": {
     "node": "0.11.*"
