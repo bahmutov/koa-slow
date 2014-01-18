@@ -1,7 +1,7 @@
 ```js
 var koa = require('koa');
 var slow = require('koa-slow');
-var app = connect()
+var app = koa()
     .use(slow({
         url: /\.jpg$/i,
         delay: 2000
