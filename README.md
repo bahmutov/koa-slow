@@ -1,4 +1,4 @@
-# koa-slow v0.1.0
+# koa-slow v0.1.1
 
 > Delaying responses for resources by URL RegExp, for Koa server
 
