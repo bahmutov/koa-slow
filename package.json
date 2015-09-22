@@ -1,6 +1,6 @@
 {
   "name": "koa-slow",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Delaying responses for resources by URL RegExp, for Koa server",
   "main": "index.js",
   "scripts": {
