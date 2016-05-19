@@ -6,8 +6,13 @@
   "scripts": {
     "test": "mocha --require should --reporter spec --bail",
     "commit": "commit-wizard",
-    "build": "grunt"
+    "build": "grunt",
+    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";"
   },
+  "files": [
+    "index.js",
+    "LICENSE-MIT"
+  ],
   "keywords": [
     "koa",
     "middleware",
