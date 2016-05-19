@@ -1,4 +1,4 @@
-# koa-slow v0.2.0
+# koa-slow
 
 > Delaying responses for resources by URL RegExp, for Koa server
 
@@ -18,6 +18,8 @@
 [koa-slow-devdependencies-url]: https://david-dm.org/bahmutov/koa-slow#info=devDependencies
 
 
+
+**note:** version 2.x supports koa v2. Use previous version with koa v1.
 
 ```js
 var koa = require('koa');

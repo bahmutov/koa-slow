@@ -1,8 +1,10 @@
-# {%= name %} v{%= version %}
+# {%= name %}
 
 > {%= description %}
 
 {%= _.doc("./docs/badges.md") %}
+
+**note:** version 2.x supports koa v2. Use previous version with koa v1.
 
 {%= _.doc("./docs/intro.md") %}
 
