@@ -1,18 +1,20 @@
-var request = require('supertest');
-var slow = require('..');
-var koa = require('koa');
+'use strict';
 
-var msg = 'hello world';
+const request = require('supertest');
+const slow = require('..');
+const koa = require('koa');
 
-describe('does not slow unrelated requests', function(){
-  it('should respond with 200', function(done){
-    var app = koa();
+const msg = 'hello world';
+
+describe('does not slow unrelated requests', () => {
+  it('should respond with 200', done => {
+    const app = new koa();
 
     app.use(slow({
       url: /\.png$/
     }));
-    app.use(function *(next){
-      this.body = msg;
+    app.use(ctx => {
+      ctx.body = msg;
     })
 
     request(app.listen())
@@ -21,13 +23,13 @@ describe('does not slow unrelated requests', function(){
   })
 })
 
-describe('slow() slows everything by default', function(){
-  it('should respond with 200', function(done){
-    var app = koa();
+describe('slow() slows everything by default', () => {
+  it('should respond with 200', done => {
+    const app = new koa();
 
     app.use(slow());
-    app.use(function *(next){
-      this.body = msg;
+    app.use(ctx => {
+        ctx.body = msg;
     })
 
     var started = new Date();
@@ -42,16 +44,16 @@ describe('slow() slows everything by default', function(){
   })
 })
 
-describe('slow() slows some resources, but not the others', function(){
-  it('should slow down .png', function(done){
-    var app = koa();
+describe('slow() slows some resources, but not the others', () => {
+  it('should slow down .png', done => {
+    const app = new koa();
 
     app.use(slow({
       url: /\.png$/,
       delay: 500
     }));
-    app.use(function *(next){
-      this.body = msg;
+    app.use(ctx => {
+        ctx.body = msg;
     })
 
     var started = new Date();
